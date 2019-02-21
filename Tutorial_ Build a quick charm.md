@@ -38,20 +38,6 @@ We need to modify it to get it to be proper.
 charm proof
 ```
 
-
-## Implement the "install" hook
-We now need to create/implement the install hook script which is run as part of the charm being installed. There are a few other hooks that are invoked by the juju-agent [link-needed], you might want to have a look at them if you want to explore more of juju. To keep this example small, will only implement the install hook in this tutorial. You would likely do more work in a real scenario depending on your ambition with the charm.
-```bash
-nano ~/my-tweaks/hooks/install
-```
-Is should look like this:
-```bash
-content
-content
-content
-```
-
-
 ## A subordinate charm
 To let our charm piggy-back on other charms, we need to turn our charm into a subordinate. This is handy, since we can deploy an already existing charm, and use our subordinate to "tweak" it to test somehting without changing the primary charm. 
 
@@ -67,8 +53,19 @@ This turns our charm into a "subordiate charm" which then can be related to any 
 Lets begin performing the steps.
 ## Add juju-info to metadata.yaml
 ## Add the subordinate configurataion parameter.
-## Implement the "juju-info-relation-joined" hook
 ## Implement the 'install' hook
+We now need to create/implement the install hook script which is run as part of the charm being installed. There are a few other hooks that are invoked by the juju-agent [link-needed], you might want to have a look at them if you want to explore more of juju. To keep this example small, will only implement the install hook in this tutorial. You would likely do more work in a real scenario depending on your ambition with the charm.
+```bash
+nano ~/my-tweaks/hooks/install
+```
+Is should look like this:
+```bash
+content
+content
+content
+```
+## Implement the "juju-info-relation-joined" hook
+Rename files, add, fix, bla blabla
 
 ## Proof, build, deploy, relate
 
