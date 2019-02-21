@@ -1,14 +1,16 @@
-# Tutorial: Build a quick charm
+# Tutorial: Build a quick charm as a subordinate
 
 Difficulty: Beginner
+
 Author: [Erik Lönroth](http://eriklonroth.wordpress.com)
 
 ## What you will learn
 
-This guide will go through a way to build a charm using only bash. Neither python, nor reactiveis needed. It is an example of how to use juju to perform a rudimentary sysadmin task as a system admin. Install a package and write a config file.
+You will learn how to build a charm using bash. Neither python, nor reactive is needed this time. It is also an example of how to perform a rudimentary sysadmin task with juju. Such as installing a package and writing a config file.
 
-This example will work on another linux distro aswell, in this example; "centos".
+To make it a bit more spicy, lets make it work on another linux distros aswell.
 
+## Preparation
 You should have gone through the first two tutorials to have a proper build environment setup for juju charming.
 
 [Part 1] - First steps developing juju charms
