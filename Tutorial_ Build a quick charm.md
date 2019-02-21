@@ -5,18 +5,17 @@ Difficulty: Beginner
 Author: [Erik Lönroth](http://eriklonroth.wordpress.com)
 
 ## What you will learn
+* You will learn about subordinate charms and how to use the implicit interface juju-info.
+* You will learn how to build a charm using only bash and hooks, which means neither knowledge in python, nor reactive is needed to complete this tutorial.
+* To make the tutorial a bit more spicy, we will make the charm also compatible with the linux distribution centos.
 
-You will learn how to build a charm using bash. Neither python, nor reactive is needed this time. It is also an example of how to perform a rudimentary sysadmin task with juju. Such as installing a package and writing a config file.
-
-To make it a bit more spicy, lets make it work on another linux distros aswell.
+This tutorial is good example on how to perform rudimentary sysadmin tasks with juju. Such as installing a package or writing a config file as a supplement to deploying full size applications or systems with juju. You will likely figure out better ways to do this as you progress, but this is a start in your journey towards juju mastery.
 
 ## Preparation
-You should have gone through the first two tutorials to have a proper build environment setup for juju charming.
+You should have completed the first two juju tutorials to get familiar with building, deploying and relating charms. This tutorial assumes you have completed them.
 
 [Part 1] - First steps developing juju charms
 [Part 2] - Adding in functionality with "layers" and connecting to a database.
-
-You will learn in this part:
 
 ## Create a "bash" charm
 Create a new charm with the template "bash"
@@ -40,17 +39,19 @@ content
 ## A subordinate charm
 To let our charm piggy-back on other charms, we need to turn our charm into a subordinate. This is handy, since we can deploy an already existing charm, and use our subordinate to "tweak" it to test somehting without changing the primary charm. 
 
-To make our charm a subordinate charm:
+To make our charm a subordinate charm we need to perform 4 things:
 
 1. Use the implicit interface;"juju-info" 
 2. Add a configuration paramter; "subordinate: true" to metadata.yaml.
-3. Implement the juju-info-relation-joined hook.
+3. Implement the 'install' hook.
+4. Implement the 'juju-info-relation-joined' hook.
 
-Doing this, turns our charm into a "subordiate charm" which can be related to any existing application already deployed by juju. A subordinate charm will wait to install until the primary charm is successfully deployed. We will do this last in this tutorial.
+This turns our charm into a "subordiate charm" which then can be related to any existing application already deployed by juju. A subordinate charm will wait to install until the primary charm is successfully deployed. We will do this last in this tutorial.
 
-Lets perform the three steps.
-## Add the interface to metadata.yaml
-## Add the configurataion paramter.
-## Implement the "juju-info-relation-joined"
+Lets begin performing the steps.
+## Add juju-info to metadata.yaml
+## Add the subordinate configurataion parameter.
+## Implement the "juju-info-relation-joined" hook
+## Implement the 'install' hook
 
-## Validating the charm
+## Proof, build, deploy, relate
