@@ -5,11 +5,13 @@ Difficulty: Beginner
 Author: [Erik Lönroth](http://eriklonroth.wordpress.com)
 
 ## What you will learn
-* You will learn about subordinate charms and how to use the implicit interface juju-info.
-* You will learn how to build a charm using only bash and hooks, which means neither knowledge in python, nor reactive is needed to complete this tutorial.
+* You will learn about subordinate charms and the implicit interface juju-info.
+* You will learn how to build a charm using only bash & [hooks], which means neither knowledge in python, nor reactive programming is needed to complete this tutorial.
 * To make the tutorial a bit more spicy, we will make the charm also compatible with the linux distribution centos.
 
-This tutorial is good example on how to perform rudimentary sysadmin tasks with juju. Such as installing a package or writing a config file as a supplement to deploying full size applications or systems with juju. You will likely figure out better ways to do this as you progress, but this is a start in your journey towards juju mastery.
+This tutorial a great start for sysadmins getting started with juju and DevOps:ing. It mimics tasks as installing a packages, executing system commands or writing config files - as a supplement to deploying full scale systems with juju.
+
+Skilled sysadmins will likely figure out better ways to do this as they progress, but this is a start in a journey towards juju mastery.
 
 ## Preparation
 You should have completed the first two juju tutorials to get familiar with building, deploying and relating charms. This tutorial assumes you have completed them.
@@ -55,3 +57,5 @@ Lets begin performing the steps.
 ## Implement the 'install' hook
 
 ## Proof, build, deploy, relate
+
+[hooks]: https://docs.jujucharms.com/2.5/en/authors-charm-hooks
