@@ -14,10 +14,13 @@ This tutorial a great start for sysadmins getting started with juju and DevOps:i
 Skilled sysadmins will likely figure out better ways to do this as they progress, but this is a start in a journey towards juju mastery.
 
 ## Preparation
-You should have completed the first two juju tutorials to get familiar with building, deploying and relating charms. This tutorial assumes you have completed them.
+1. You should have completed the first two juju tutorials to get familiar with building, deploying and relating charms. This tutorial assumes you have completed them.
 
 [Part 1] - First steps developing juju charms
 [Part 2] - Adding in functionality with "layers" and connecting to a database.
+
+2. You should have read about [hooks]. 
+
 
 ## Create a "bash" charm
 Create a new charm with the template "bash"
@@ -59,3 +62,5 @@ Lets begin performing the steps.
 ## Proof, build, deploy, relate
 
 [hooks]: https://docs.jujucharms.com/2.5/en/authors-charm-hooks
+[part 1]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-1
+[part 2]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-2
