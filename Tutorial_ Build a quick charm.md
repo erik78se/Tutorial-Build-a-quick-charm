@@ -5,28 +5,39 @@ Difficulty: Beginner
 Author: [Erik Lönroth](http://eriklonroth.wordpress.com)
 
 ## What you will learn
-* You will learn about subordinate charms and the implicit interface juju-info.
-* You will learn how to build a charm using only bash & [hooks], which means neither knowledge in python, nor reactive programming is needed to complete this tutorial.
+* You will learn about subordinate charms and the interface; 'juju-info'.
+* You will learn how to build a charm using only bash & [hooks]. (Which means neither knowledge in python, nor reactive programming is needed to complete this tutorial).
 * To make the tutorial a bit more spicy, we will make the charm also compatible with the linux distribution centos.
 
-This tutorial a great start for sysadmins getting started with juju and DevOps:ing. It mimics tasks as installing a packages, executing system commands or writing config files - as a supplement to deploying full scale systems with juju.
+This tutorial a great start for sysadmins getting started with juju and DevOps:ing. It mimics sysadmin tasks, such as, installing packages, executing system commands or writing config files - as a supplement to deploying full scale systems with juju.
 
 Skilled sysadmins will likely figure out better ways to do this as they progress, but this is a start in a journey towards juju mastery.
 
 ## Preparation
-1. You should have completed the first two juju tutorials to get familiar with building, deploying and relating charms. This tutorial assumes you have completed them.
+1. You should have completed the first two beginner juju tutorials to get familiar with building, deploying and relating charms.
 
 [Part 1] - First steps developing juju charms
 [Part 2] - Adding in functionality with "layers" and connecting to a database.
 
-2. You should have read about [hooks]. 
+2. You should have read about juju [hooks], especially the 'install' hook. 
 
+Now, lets begin by creating the charm.
 
 ## Create a "bash" charm
+TODO: Fix this
+
 Create a new charm with the template "bash"
 ```bash
     charm -t bash create my-tweaks
 ```
+This will create a stub charm 'my-tweaks' with only the basic hooks added in to it. It will not add in the reactive part for charms as in the previous tutorials.
+
+We need to modify it to get it to be proper.
+
+```bash
+charm proof
+```
+
 
 ## Implement the "install" hook
 We now need to create/implement the install hook script which is run as part of the charm being installed. There are a few other hooks that are invoked by the juju-agent [link-needed], you might want to have a look at them if you want to explore more of juju. To keep this example small, will only implement the install hook in this tutorial. You would likely do more work in a real scenario depending on your ambition with the charm.
