@@ -17,6 +17,7 @@ Skilled sysadmins will likely figure out better ways to do this as they progress
 1. You should have completed the first two beginner juju tutorials to get familiar with building, deploying and relating charms.
 
 [Part 1] - First steps developing juju charms
+
 [Part 2] - Adding in functionality with "layers" and connecting to a database.
 
 2. You should have read about juju [hooks], especially the 'install' hook. 
@@ -28,15 +29,33 @@ TODO: Fix this
 
 Create a new charm with the template "bash"
 ```bash
-    charm -t bash create my-tweaks
+$ charm create -t bash my-tweaks
+INFO: Generating charm for my-tweaks in ./my-tweaks
+INFO: No my-tweaks in apt cache; creating an empty charm instead.
 ```
-This will create a stub charm 'my-tweaks' with only the basic hooks added in to it. It will not add in the reactive part for charms as in the previous tutorials.
+We have now created a stub charm 'my-tweaks' with the basic hooks added in to it.
 
-We need to modify it to get it to be proper.
-
-```bash
-charm proof
+This is how it looks:
 ```
+my-tweaks
+├── README.ex
+├── config.yaml
+├── hooks
+│   ├── config-changed
+│   ├── install
+│   ├── relation-name-relation-broken
+│   ├── relation-name-relation-changed
+│   ├── relation-name-relation-departed
+│   ├── relation-name-relation-joined
+│   ├── start
+│   ├── stop
+│   └── upgrade-charm
+├── icon.svg
+├── metadata.yaml
+└── revision
+```
+
+Pay specific attention to the "relation-name-relation-" prefix for some of the hooks above. Those are  hooks triggered when our charm gets related with others. We will implement one such relation in our charm: "juju-info". Juju-info is an implicit relation which is always present in juju charms. (Read more about [implicit relations] here).
 
 ## A subordinate charm
 To let our charm piggy-back on other charms, we need to turn our charm into a subordinate. This is handy, since we can deploy an already existing charm, and use our subordinate to "tweak" it to test somehting without changing the primary charm. 
@@ -72,3 +91,4 @@ Rename files, add, fix, bla blabla
 [hooks]: https://docs.jujucharms.com/2.5/en/authors-charm-hooks
 [part 1]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-1
 [part 2]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-2
+[implicit relations]: https://docs.jujucharms.com/2.5/en/authors-relations#implicit-relations
