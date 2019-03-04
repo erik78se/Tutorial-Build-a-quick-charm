@@ -14,10 +14,6 @@ Neither knowledge in python, nor reactive programming is needed to complete this
 * You will learn how to build charms using only standard juju [hooks].
 * You will learn about the juju command: "juju run" to execute remote commands.
 
-* You will learn about subordinate charms.
-* You will learn about the interface; [juju-info].
-* You will learn how to use charm configuration options to make your charm configurable.
-
 As you take on this tutorial, you will likely figure out better ways to do this as they progress, but this is another good start in a journey towards juju mastery.
 
 ## Preparation
