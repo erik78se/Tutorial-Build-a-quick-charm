@@ -108,10 +108,10 @@ Great! Our charm builds and the resuting charm is placed in "/tmp/charm-builds",
 # OMG fix this
 ```bash
 touch hooks/hook.template
-echo "#!/bin/bash > hooks/leader-elected"
-echo "#!/bin/bash > hooks/leader-settings-changed"
-echo "#!/bin/bash > hooks/update-status"
-echo "#!/bin/bash > hooks/install"
+echo '#!/bin/bash' > hooks/leader-elected
+echo '#!/bin/bash' > hooks/leader-settings-changed
+echo '#!/bin/bash' > hooks/update-status
+echo '#!/bin/bash' > hooks/install
 chmod +x hooks/*
 ```
 After messing with this, lets continue.
