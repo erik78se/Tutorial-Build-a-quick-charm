@@ -92,8 +92,29 @@ $ echo "# Tutorial charm" > README
 ```
 Good work, lets try build the charm!
 ```bash
-charm build
+$ charm build
+build: Build dir not specified via command-line or environment; defaulting to /tmp/charm-builds
+build: Please add a `repo` key to your layer.yaml, with a url from which your layer can be cloned.
+build: Destination charm directory: /tmp/charm-builds/my-tweaks
+build: The top level layer expects a valid layer.yaml file
+build: Processing layer: my-tweaks (from .)
+proof: I: `display-name` not provided, add for custom naming in the UI
+proof: I: Includes template icon.svg file.
+proof: W: no copyright file
+proof: I: all charms should provide at least one thing
 ```
+Great! Our charm builds and the resuting charm is placed in "/tmp/charm-builds", but before we can deploy our charm, we need to do some serious fixes for juju to operate properly what we have done.
+
+# OMG fix this
+```bash
+touch hooks/hook.template
+echo "#!/bin/bash > hooks/leader-elected"
+echo "#!/bin/bash > hooks/leader-settings-changed"
+echo "#!/bin/bash > hooks/update-status"
+echo "#!/bin/bash > hooks/install"
+chmod +x hooks/*
+```
+After messing with this, lets continue.
 
 ## Implement the 'install' hook
 We now need to create/implement the install hook script which is run as part of the charm being installed. There are a few other hooks that are invoked by the juju-agent [link-needed], you might want to have a look at them if you want to explore more of juju. To keep this example small, will only implement the install hook in this tutorial. You would likely do more work in a real scenario depending on your ambition with the charm.
@@ -102,15 +123,19 @@ nano ~/my-tweaks/hooks/install
 ```
 Is should look like this:
 ```bash
-content
-content
-content
+#!/bin/bash
+# Hook-tools docs: https://docs.jujucharms.com/2.5/en/reference-hook-tools
+
+status-set maintenance "Installing"
+echo "Hello World is always the result" > /etc/hello-world
+status-set active "Ready"
 ```
-## Implement the "juju-info-relation-joined" hook
-Rename files, add, fix, bla blabla
-
 ## Proof, build, deploy, relate
-
+charm proof messes with layer.yaml?
+```bash
+charm proof
+W: cannot parse /home/erik/Tutorial-Build-a-quick-charm/my-tweaks/layer.yaml: 'NoneType' object has no attribute 'get'
+```
 [hooks]: https://docs.jujucharms.com/2.5/en/authors-charm-hooks
 [part 1]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-1
 [part 2]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-2
