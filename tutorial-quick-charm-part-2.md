@@ -5,18 +5,21 @@ Difficulty: Beginner
 Author: [Erik Lönroth](http://eriklonroth.wordpress.com)
 
 ## What you will learn
-Building on (Build a quick charm as a subordinate (Quick charm part 1/2) we will turn our charm into a "subordinate" charm so we can piggy-back on already deployed charms. This will allow us to extend charms easily.
+Building on the previous part of this tutorial, we will turn our charm into a "subordinate" charm. This allows us to add our functionality to already deployed charms on servers.
+
 * You will learn about subordinate charms.
-* You will learn how to implement hooks that triggers on "relations" getting formed on specific interfaces.
+* You will learn how to implement hooks that triggers charms getting joined on specific interfaces.
 * You will learn about the interface; [juju-info].
 
 ## Preparation
-You should have done the tutorial: Quick charm (part 1/2)
+* You should have completed [Quick charm (part 1/2)](tutorial-quick-charm-part-1.md).
+* You should have read about [juju relations].
 
 ## A subordinate charm
+
 You should pay some attention to the "relation-name-relation-" prefix for some of the hooks above. 
 
- will implement the juju-info-relation-joined" which an implicit relation which is always present in juju charms. (Read more about [implicit relations] here).
+Will implement the juju-info-relation-joined" which an implicit relation which is always present in juju charms. (Read more about [implicit relations] here).
 
 To let our charm piggy-back on other charms, we need to turn our charm into a subordinate. This is handy, since we can deploy an already existing charm, and use our subordinate to "tweak" it to test somehting without changing the primary charm. 
 
@@ -52,4 +55,5 @@ Rename files, add, fix, bla blabla
 [tutorial-charm-development-beginner-part-1]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-1
 [tutorial-charm-development-beginner-part-1]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-2
 [implicit relations]: https://docs.jujucharms.com/2.5/en/authors-relations#implicit-relations
+[juju relations]: https://docs.jujucharms.com/2.5/en/authors-relations
 [juju-info]: https://github.com/juju-solutions/interface-juju-info
