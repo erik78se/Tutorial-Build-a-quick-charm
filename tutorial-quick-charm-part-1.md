@@ -11,9 +11,11 @@ We will create a charm that adds a file to the /etc/ directory and installs a pa
 
 Neither knowledge in python, nor reactive programming is needed to complete this tutorial.
 
-* You will learn how to build charms using only standard juju [hooks].
-* You will learn how to add in a file to a charm.
-* You will learn about the juju command: "juju run" to execute remote commands.
+You will learn:
+
+* How to build charms using only standard juju [hooks].
+* How to add in a file to a charm.
+* How to use the juju command: "juju run" to execute remote commands.
 
 ## Preparation
 1. You should have read about juju [hooks]; especially the 'install' hook as we will implement that hook in this tutorial.
@@ -24,7 +26,7 @@ Neither knowledge in python, nor reactive programming is needed to complete this
 
 [Part 2] - Adding in functionality with "layers" and connecting to a database.
 
-Now, lets begin our work.
+Lets begin our work.
 
 ## Create a "bash" charm
 Start by creating a bash charm.
@@ -35,9 +37,9 @@ INFO: Generating charm for my-tweaks in ./my-tweaks
 INFO: No my-tweaks in apt cache; creating an empty charm instead.
 ```
 
-A stub charm 'my-tweaks' is initiated with all the basic hooks added in the "hooks" directory.
+A stub charm 'my-tweaks' is initiated with all basic hooks added in the "hooks" directory.
 
-Lets examine it:
+Lets examine our charm structure:
 ```
 $ tree my-tweaks
 my-tweaks
@@ -57,26 +59,42 @@ my-tweaks
 ├── metadata.yaml
 └── revision
 ```
+In the 'hooks' directory, a few scripts are placed. Those are all refered to as: "hooks" and will be executed by juju at certain times or events.
 
-We will implement the "install" hook in this tutorial. 
+A good charmer will implement all of the hooks, but we will settle with implementing the "install" hook for now.
 
-You should pay some attention to the "relation-name-relation-" prefix for some of the hooks above. In the next part of this tutorial, we will implement the juju-info-relation-joined" which an implicit relation which is always present in juju charms. (Read more about [implicit relations] here).
+You should pay attention to the "relation-name-relation-" prefix for some of the hooks above. In the next part of this tutorial, we will implement the juju-info-relation-joined" which an implicit relation which is always present in juju charms. (Read more about [implicit relations] here).
 
-## A subordinate charm
-To let our charm piggy-back on other charms, we need to turn our charm into a subordinate. This is handy, since we can deploy an already existing charm, and use our subordinate to "tweak" it to test somehting without changing the primary charm. 
+But to continue, we need to fill in some missing pieces from our 'my-tweaks' charm.
 
-To make our charm a subordinate charm we need to perform 4 things:
+# Clean up the 'my-tweaks' charm
+Lets edit the "metadata.yaml" to look like this:
+```bash
+cd my-tweaks
+```
+metadata.yaml
+```yaml
+name: my-tweaks
+summary: My tweaks installs and adds
+maintainer: My Name <my.name@foo.bar>
+description: |
+  It does
+tags:
+  - misc
+subordinate: false
+series: ['bionic','disco']
 
-1. Use the implicit interface;"juju-info" 
-2. Add a configuration paramter; "subordinate: true" to metadata.yaml.
-3. Implement the 'install' hook.
-4. Implement the 'juju-info-relation-joined' hook.
+```
+Fix the README so we don't get so much warnings later on.
+```bash
+$ rm README.ex
+$ echo "# Tutorial charm" > README
+```
+Good work, lets try build the charm!
+```bash
+charm build
+```
 
-This turns our charm into a "subordiate charm" which then can be related to any existing application already deployed by juju. A subordinate charm will wait to install until the primary charm is successfully deployed. We will do this last in this tutorial.
-
-Lets begin performing the steps.
-## Add juju-info to metadata.yaml
-## Add the subordinate configurataion parameter.
 ## Implement the 'install' hook
 We now need to create/implement the install hook script which is run as part of the charm being installed. There are a few other hooks that are invoked by the juju-agent [link-needed], you might want to have a look at them if you want to explore more of juju. To keep this example small, will only implement the install hook in this tutorial. You would likely do more work in a real scenario depending on your ambition with the charm.
 ```bash
