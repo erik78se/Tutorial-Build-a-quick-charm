@@ -12,12 +12,11 @@ We will create a charm that adds a file to the /etc/ directory and installs a pa
 Neither knowledge in python, nor reactive programming is needed to complete this tutorial.
 
 * You will learn how to build charms using only standard juju [hooks].
+* You will learn how to add in a file to a charm.
 * You will learn about the juju command: "juju run" to execute remote commands.
 
-As you take on this tutorial, you will likely figure out better ways to do this as they progress, but this is another good start in a journey towards juju mastery.
-
 ## Preparation
-1. You should have read about juju [hooks], especially the 'install' hook as we will implement that hook in this tutorial.
+1. You should have read about juju [hooks]; especially the 'install' hook as we will implement that hook in this tutorial.
 
 2. You should have completed the first two beginner juju tutorials to get familiar with building, deploying and relating charms.
 
@@ -25,18 +24,20 @@ As you take on this tutorial, you will likely figure out better ways to do this 
 
 [Part 2] - Adding in functionality with "layers" and connecting to a database.
 
-Now, lets begin by creating the charm.
+Now, lets begin our work.
 
 ## Create a "bash" charm
+Start by creating a bash charm.
+
 ```bash
 $ charm create -t bash my-tweaks
 INFO: Generating charm for my-tweaks in ./my-tweaks
 INFO: No my-tweaks in apt cache; creating an empty charm instead.
 ```
 
-We have now created a stub charm 'my-tweaks' with all the basic hooks added in to it.
+A stub charm 'my-tweaks' is initiated with all the basic hooks added in the "hooks" directory.
 
-This is how it looks:
+Lets examine it:
 ```
 $ tree my-tweaks
 my-tweaks
