@@ -62,7 +62,13 @@ my-tweaks
 ```
 In the 'hooks' directory, a few scripts are placed. Those are all refered to as: "hooks" and will be executed by juju at certain times or events.
 
-A good charmer will implement all of the hooks, but we will settle with implementing the "install" hook for now.
+A good charmer will implement all of the hooks, but we will settle with implementing only the hooks that are part of the main event cycle which are:
+
+* install
+* leader-elected (leader-settings-changed respectively)
+* config-changed
+* start
+* update-status
 
 You should pay attention to the "relation-name-relation-" prefix for some of the hooks above. In the next part of this tutorial, we will implement the juju-info-relation-joined" which an implicit relation which is always present in juju charms. (Read more about [implicit relations] here).
 
@@ -113,6 +119,7 @@ echo '#!/bin/bash' > hooks/leader-elected
 echo '#!/bin/bash' > hooks/leader-settings-changed
 echo '#!/bin/bash' > hooks/update-status
 echo '#!/bin/bash' > hooks/install
+echo '#!/bin/bash' > hooks/start
 chmod +x hooks/*
 ```
 After messing with this, lets continue.
