@@ -16,6 +16,7 @@ You will learn:
 * How to build charms using only standard juju [hooks].
 * How to add in a file to a charm.
 * How to use the juju command: "juju run" to execute remote commands.
+* How to perform a simple debug session with 'juju debug-log'
 
 ## Preparation
 1. You should have read about juju [hooks]; especially the 'install' hook as we will implement that hook in this tutorial.
