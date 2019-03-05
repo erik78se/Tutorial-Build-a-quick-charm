@@ -10,6 +10,7 @@ Building on the previous part of this tutorial, we will turn our charm into a "s
 * You will learn about subordinate charms.
 * You will learn how to implement hooks that triggers charms getting joined on specific interfaces.
 * You will learn about the interface; [juju-info].
+* How to perform a simple hook debug session with 'juju debug-hook'
 
 ## Preparation
 * You should have completed [Quick charm (part 1/2)](tutorial-quick-charm-part-1.md).
