@@ -1,0 +1,9 @@
+name: my-tweaks
+summary: My tweaks installs and adds
+maintainer: Erik Lonroth <Erik.Lonroth@juju-dev>
+description: |
+  It does
+tags:
+  - misc
+subordinate: false
+series: ['bionic','disco']

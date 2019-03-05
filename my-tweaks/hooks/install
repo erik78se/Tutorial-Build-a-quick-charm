@@ -1,0 +1,8 @@
+#!/bin/bash
+# Hook-tools docs: https://docs.jujucharms.com/2.5/en/reference-hook-tools
+
+status-set maintenance "Installing"
+
+echo "Hello World is always the result" > /etc/hello-world
+
+status-set active "Ready"
