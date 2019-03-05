@@ -125,27 +125,52 @@ chmod +x hooks/*
 After messing with this, lets continue.
 
 ## Implement the 'install' hook
-We now need to create/implement the install hook script which is run as part of the charm being installed. There are a few other hooks that are invoked by the juju-agent [link-needed], you might want to have a look at them if you want to explore more of juju. To keep this example small, will only implement the install hook in this tutorial. You would likely do more work in a real scenario depending on your ambition with the charm.
+The obvious place to start, is the hook "install". Lets decide that it shall install a file we ship with the charm to /etc/hello-world.txt:
+
+* Installing a file we ship with the charm and produce some logs.
+
+This is easy. 
+
+To do this, we need to :
+
+1. Add the file we want to ship to the charm directory:
 ```bash
-nano ~/my-tweaks/hooks/install
+mkdir -p my-tweaks/my-files
+echo "Hello World" > my-tweaks/my-files/hello-world.txt
 ```
-Is should look like this:
+2. Implement the install hook and let it copy the file to the target place /etc/hello-world.txt
+
+The install hook should look like this:
 ```bash
 #!/bin/bash
 # Hook-tools docs: https://docs.jujucharms.com/2.5/en/reference-hook-tools
+# Hook environment: https://discourse.jujucharms.com/t/the-hook-environment-hook-tools-and-how-hooks-are-run/1047
 
 status-set maintenance "Installing"
-echo "Hello World is always the result" > /etc/hello-world
+install my-files/hello.txt /etc/hello-world.txt
 status-set active "Ready"
 ```
+Read the [hooks-environment] to see what goes on here.
+
+## Lets build and examine
+```bash
+charm build
+ls /tmp/charm-builds/my-tweaks
+config.yaml  hooks  icon.svg  layer.yaml  metadata.yaml  my-files  README  revision  version
+```
+This is the content of the charm we will deploy and where the 'my-files' directory with our files are included.
+
 ## Proof, build, deploy, relate
 charm proof messes with layer.yaml?
 ```bash
 charm proof
 W: cannot parse /home/erik/Tutorial-Build-a-quick-charm/my-tweaks/layer.yaml: 'NoneType' object has no attribute 'get'
 ```
+
+
 [hooks]: https://docs.jujucharms.com/2.5/en/authors-charm-hooks
 [part 1]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-1
 [part 2]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-2
 [implicit relations]: https://docs.jujucharms.com/2.5/en/authors-relations#implicit-relations
 [juju-info]: https://github.com/juju-solutions/interface-juju-info
+[hooks-environment]: https://discourse.jujucharms.com/t/the-hook-environment-hook-tools-and-how-hooks-are-run/1047
