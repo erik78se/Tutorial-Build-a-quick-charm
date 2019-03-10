@@ -10,13 +10,13 @@ This tutorial is a good start to learn about the concept of "juju hooks".
 
 You will:
 
-* Learn how to retrieve a charm from charmstore.
+* Learn how to retrieve a charm from [charmstore].
 * Learn how to use juju [hooks] in charms.
-* Get an overview about the juju event-loop.
-* Learn how to use the juju command: "juju run" to execute remote commands.
+* Get an overview about the juju event-loop / state-machine.
+* Learn how to use the juju command: 'juju run' to execute remote commands.
 * Learn how to use 'juju debug-log' for debuging your charms.
 
-Lets get started.
+Lets get started!
 # Preparations
 1. You need an internet connection and a linux client.
 1. You need a juju controller to deploy charms through. Here is how you can get that running on your local machine: [juju-lxd]
@@ -183,3 +183,4 @@ Happy charming!
 [hooks]: https://docs.jujucharms.com/2.5/en/reference-charm-hooks
 [juju-lxd]: https://docs.jujucharms.com/2.5/en/clouds-lxd
 [juju-state-machine]: https://github.com/erik78se/Tutorial-Build-a-quick-charm/blob/master/juju-core-state-machine.png
+[charmstore]: https://jujucharms.com
