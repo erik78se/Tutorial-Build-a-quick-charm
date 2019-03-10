@@ -18,6 +18,7 @@ You will:
 
 Lets get started!
 # Preparations
+1. You should have basic understanding of what juju, charms and model are.
 1. You need an internet connection and a linux client.
 1. You need a juju controller to deploy charms through. Here is how you can get that running on your local machine: [juju-lxd]
 1. You need a basic charm developer environment. If you have completed [part 1] "Setup up a basic workbench", then your'e all set.
