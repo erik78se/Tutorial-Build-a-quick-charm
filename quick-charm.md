@@ -67,6 +67,25 @@ juju deploy cs:~erik-lonroth/tiny-python
 watch -c juju status --color 
 ```
 
+# Juju state machine
+Before we look closer on "hooks", you need to understand when these hooks are triggered by the [juju-state-machine]. 
+
+The core hooks are: 
+* install
+* config-changed
+* start
+* leader-elected
+* leader-settings-changed
+* start
+* stop
+* update-status
+
+The tiny-python charm implements all "core hooks" (which is good practice) but a charm doesn't strictly need to implement any of them to be able to depluy.
+
+Now that you know more about the core hooks, lets explore the "upgrade-charm".
+
+# Modifying a hook
+
 # Extra excersise: tiny-bash
 The tiny-python charm has a sister charm: [tiny-bash]. This charm deploys very fast, since its not pulling in any python modules etc. It also implements all the hooks that tiny-python does.
 
@@ -81,3 +100,4 @@ juju deploy cs:~erik-lonroth/tiny-bash
 [tiny-bash]: https://jujucharms.com/new/u/erik-lonroth/tiny-bash
 [hooks]: https://docs.jujucharms.com/2.5/en/reference-charm-hooks
 [juju-lxd]: https://docs.jujucharms.com/2.5/en/clouds-lxd
+[juju-state-machine]: https://github.com/erik78se/Tutorial-Build-a-quick-charm/blob/master/juju-core-state-machine.png
