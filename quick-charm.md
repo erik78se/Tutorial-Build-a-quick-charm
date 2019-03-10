@@ -95,9 +95,11 @@ The tiny-python charm implements all "core hooks" (which is good practice) but a
 Now that you have an initial understanding about the core hooks, lets explore the "install" hook to get our hands dirty.
 
 # Modifying the 'install' hook
-Lets decide that our charm will install the "hello" snap and set application version from the yaml output of 'snap info hello'.
+Lets decide that our changes to the tiny-python charm will install a snap package "hello" from [snapcraft.io] and set the application version from the yaml output of 'snap info hello'. 
 
-Edit the 'install' hook as below.
+Note: Installing snaps are pretty much like installing a "deb" or "rpm" package so don't worry if you don't know what a snap is. It might be cool to know that snaps works on any linux distro, which is something I like.
+
+So, now edit the 'install' hook as below.
 ```python
 import setup
 setup.pre_install()
@@ -129,7 +131,7 @@ juju debug-log
 ```
 Amazing! We now see what version of "hello" we have deployed!
 
-See the Store for our App is set to "local"? This tells us that we are using a local version of the charm, instead the one from charmstore.
+See from 'juju status' that the Store for our App is set to "local"? This tells us that we are using a local version of the charm, instead the one from charmstore.
 
 # The update-status hook & juju run
 Lets now turn our eyes a bit towards the update-status hook. This hook is triggered periodically as you can see in the [juju-state-machine]. Its a great place to gather information or evaluate the status of your application. The interval at which this update-status occurs is however several minutes. You dont have that time when you are debugging. We need a means to trigger it to run when you want it to.
@@ -186,3 +188,4 @@ Happy charming!
 [juju-lxd]: https://docs.jujucharms.com/2.5/en/clouds-lxd
 [juju-state-machine]: https://github.com/erik78se/Tutorial-Build-a-quick-charm/blob/master/juju-core-state-machine.png
 [charmstore]: https://jujucharms.com
+[snapcraft.io]: https://snapcraft.io/
