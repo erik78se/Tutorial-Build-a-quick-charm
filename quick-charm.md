@@ -162,15 +162,19 @@ I will leave this task to you before we continue and learn how to upgrade your j
 # The upgrade-charm hook
 Once you have made changes to your charm, you want to upgrade them. You can either remove your charm altogether (juju remove-application) and start new, but you then need to wait for a new machine to come alive. This is not what you want always. Also, the "install" hook might take a long time to run.
 
-With your changes in the "update-status" hook, lets use "juju upgrade-charm" to upgrade the charm.
+With your changes in the "update-status" hook, lets use "juju upgrade-charm" to upgrade the charm. 
 
 ```bash
 juju upgrade-charm tiny-python --path=./tiny-python
 ```
-If you have done everything right, you will now see a new 'Rev' number in the model. If it fails, you can probably find out your problem with:
+
+Even though we have not changed the upgrade-charm hook itself, you can see that its ran from the output of 'juju status'
+
+If you have done everything right, you will also see a new 'Rev' number in the model. If it fails, you can probably find out your problem with:
 ```
 juju debug-log
 ```
+If you wait for a while, you will now also see the results from your changes to "update-status" as the juju state machine triggers the periodic hook.
 
 What a glorious achievement! Its now up to you to explore what you can do with all the other hooks available to you! Only your imagination is the limit!
 
