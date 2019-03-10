@@ -6,7 +6,7 @@ Difficulty: Beginner
 Author: [Erik Lönroth]
 
 ## What you will learn
-This tutorial is a good start to learn about the concept of "juju hooks".
+This tutorial is a good start to learn about the concept of "juju hooks" by modify an existing charm.
 
 You will:
 
@@ -89,6 +89,7 @@ The core hooks are the following:
 * start
 * stop
 * update-status
+* upgrade-charm
 
 The tiny-python charm implements all "core hooks" (which is good practice) but a charm doesn't strictly need to implement any of them to be able to deploy.
 
