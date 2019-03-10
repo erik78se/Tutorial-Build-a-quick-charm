@@ -130,9 +130,10 @@ juju deploy ./tiny-python
 watch -c juju status --color
 juju debug-log
 ```
-Amazing! We now see what version of "hello" we have deployed!
 
 See from 'juju status' that the Store for our App is set to "local"? This tells us that we are using a local version of the charm, instead the one from charmstore.
+
+Amazing! Soon you should also see what version of "hello" you have deployed!
 
 # The update-status hook & juju run
 Lets now turn our eyes a bit towards the update-status hook. This hook is triggered periodically as you can see in the [juju-state-machine]. Its a great place to gather information or evaluate the status of your application. The interval at which this update-status occurs is however several minutes. You dont have that time when you are debugging. We need a means to trigger it to run when you want it to.
