@@ -157,18 +157,24 @@ With your changes in the "update-status" hook, lets use "juju upgrade-charm" to 
 ```bash
 juju upgrade-charm tiny-python --path=./tiny-python
 ```
-If you have done everything OK, you will now see a new 'Rev' number in the model. If it fails, you shouldcan probably find your problem with 
+If you have done everything right, you will now see a new 'Rev' number in the model. If it fails, you can probably find out your problem with:
 ```
 juju debug-log
 ```
 
-# Extra excersise: tiny-bash
+What a glorious achievement! Its now up to you to explore what you can do with all the other hooks available to you! Only your imagination is the limit!
+
+# Extra material : tiny-bash
 The tiny-python charm has a sister charm: [tiny-bash]. This charm deploys very fast, since its not pulling in any python modules etc. It also implements all the hooks that tiny-python does.
 
-You can try it if you like and look at the code if you have time. It takes about 5 minutes.
+You can try it if you like and look at the code if you have time. It takes about 5 minutes and a great spot to test out stuff with hooks.
+
 ```bash
-juju deploy cs:~erik-lonroth/tiny-bash
+charm pull cs:~erik-lonroth/tiny-bash
 ```
+
+Happy charming!
+
 [hooks-environment]: https://discourse.jujucharms.com/t/the-hook-environment-hook-tools-and-how-hooks-are-run/1047
 [Erik Lönroth]: http://eriklonroth.wordpress.com
 [part 1]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-1
