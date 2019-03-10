@@ -149,11 +149,15 @@ juju run --unit tiny-python/1 'hooks/update-status'
 As you can see from the output from ```juju status```, we have forced the update-status script to run.
 
 We can play with any other unix commands aswell, lets find out the hostname of machine 1:
-```juju run --machine 1 hostname```
 
-The 'juju run' command as a fantastic tools in situations where you don't have the ability to use ssh! Go ahead and run some other unix commands of you choise.
+```
+juju run --machine 1 hostname
+```
 
-You excercise now is to modify the 'update-status' hook to update the application version. Its really just to copy the code from the install hook and I will leave that to you before we continue and learn how to upgrade your juju charms in your models.
+The 'juju run' command as a fantastic tool in situations where you don't have the ability to use ssh! Go ahead and run some other unix commands of you choise.
+
+Your excercise is now to modify the 'update-status' hook to update the application version. Its really just to copy the code from the install hook and 
+I will leave this task to you before we continue and learn how to upgrade your juju charms in your models.
 
 # The upgrade-charm hook
 Once you have made changes to your charm, you want to upgrade them. You can either remove your charm altogether (juju remove-application) and start new, but you then need to wait for a new machine to come alive. This is not what you want always. Also, the "install" hook might take a long time to run.
