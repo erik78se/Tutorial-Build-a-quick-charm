@@ -71,13 +71,13 @@ juju debug-log
 Once you are happy watching logs and status. The application will enter the 'active' status and workload. It all seems good and we can continue.
 
 # Remove the App/charm
-Lets clean up, so we don't run into problems later.
+Lets clean up our test deploy, so we don't run into problems later.
 ```
 juju remove application tiny-python
 ```
-Now, your juju model should be empty.
+Now, your juju model should be empty. Make sure it is with 'juju status'.
 
-# Juju state machine
+# The juju state machine
 Before we dive deeper into "hooks", you need to understand when hooks are triggered by the [juju-state-machine]. There are many hooks, but a few are core to the operation of all charms.
 
 The core hooks are the following: 
