@@ -23,14 +23,16 @@ Lets get started!
 1. You need a basic charm developer environment. If you have completed [part 1] "Setup up a basic workbench", then your'e all set.
 
 # The "tiny-python" charm
-I have prepared a charm already for you. Its called "[tiny-python]". We will modify tiny-python during this tutorial to learn about juju:s "hooks".
+I have prepared a charm already for you. Its called "[tiny-python]". We will modify tiny-python during this tutorial to learn about juju:s "hooks". 
 
 Your first task is to download/pull the tiny-python charm. Go ahead and run:
 
 ```bash
 charm pull cs:~erik-lonroth/tiny-python
 ```
-This command dowloads the latest version of [tiny-python] from the charmstore to your local filesystem. Lets look at what we got.
+This command downloads the latest version of [tiny-python] from the charmstore to your local filesystem. This can be done with any charm.
+
+Lets look at what we got.
 ```
 $ tree tiny-python
 tiny-python
@@ -55,7 +57,7 @@ tiny-python
 ```
  Thats about it! The whole charm is now there. Congratulations - you have learned how to retrieve a charm directly from charmstore!
  
- Now, lets deploy it to your cloud! You can decide for your self if you want to deploy from charmstore or from your local version. For juju, its all the same.
+ Now, lets try deploy it to your cloud! You can decide if you want to deploy from charmstore or from your local version. For juju, its all the same.
  
 # juju deploy, status and debug-log
 Lets deploy the charmstore version of the charm and follow it through:
