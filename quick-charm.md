@@ -70,7 +70,7 @@ juju debug-log
 
 Soon, the application will enter the 'active' status and workload. Once you are happy watching logs and status we can continue.
 
-# Remove the charm
+# Remove the application
 Lets clean up our test deploy, so we don't run into problems later.
 ```
 juju remove application tiny-python
