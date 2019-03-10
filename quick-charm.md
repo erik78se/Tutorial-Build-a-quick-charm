@@ -67,10 +67,17 @@ juju deploy cs:~erik-lonroth/tiny-python
 watch -c juju status --color 
 ```
 
+# Remove the App/charm
+Lets clean up, so we don't run into problems later.
+```
+juju remove application tiny-python
+```
+Now, your juju model should be empty. Good job!
+
 # Juju state machine
 Before we look closer on "hooks", you need to understand when these hooks are triggered by the [juju-state-machine]. 
 
-The core hooks are: 
+The core hooks are the following: 
 * install
 * config-changed
 * start
@@ -80,11 +87,46 @@ The core hooks are:
 * stop
 * update-status
 
-The tiny-python charm implements all "core hooks" (which is good practice) but a charm doesn't strictly need to implement any of them to be able to depluy.
+The tiny-python charm implements all "core hooks" (which is good practice) but a charm doesn't strictly need to implement any of them to be able to deploy.
 
-Now that you know more about the core hooks, lets explore the "upgrade-charm".
+Now that you know more about the core hooks, lets explore the "install" hook.
 
-# Modifying a hook
+# Modifying the 'install' hook
+Lets decide that our charm will install the "hello" snap and set application version from the yaml output of 'snap info hello'.
+
+Edit the 'install' hook as below.
+```python
+import setup
+setup.pre_install()
+
+from charmhelpers.core import hookenv
+import subprocess
+import yaml
+
+def install():
+    subprocess.call(['snap', 'install', 'hello', '--stable'])
+    output = subprocess.check_output(['snap', 'info', 'hello'])
+    yamldata = yaml.load(output)
+    hookenv.application_version_set( yamldata['installed'].split(" ")[0] )
+    hookenv.status_set('maintenance', 'Installed, waiting for start')
+    hookenv.log('Did some installing', 'INFO')
+
+if __name__ == "__main__":
+    install()
+
+```
+
+# Deploy our local version
+With our changes saved, lets deploy our modified local charm.
+
+```bash
+juju deploy ./tiny-python
+watch -c juju status --color
+```
+Amazing! We now see what version of "hello" we have deployed!
+
+See the Store for our App is set to "local"? This tells us that we are using a local version of the charm, instead the one from charmstore.
+
 
 # Extra excersise: tiny-bash
 The tiny-python charm has a sister charm: [tiny-bash]. This charm deploys very fast, since its not pulling in any python modules etc. It also implements all the hooks that tiny-python does.
