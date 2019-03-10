@@ -68,9 +68,9 @@ juju debug-log
 ```
 'juju debug-log' lets us see from a debug point of view what happens inside the model.
 
-Once you are happy watching logs and status. The application will enter the 'active' status and workload. It all seems good and we can continue.
+Soon, the application will enter the 'active' status and workload. Once you are happy watching logs and status we can continue.
 
-# Remove the App/charm
+# Remove the charm
 Lets clean up our test deploy, so we don't run into problems later.
 ```
 juju remove application tiny-python
