@@ -160,7 +160,7 @@ Your excercise is now to modify the 'update-status' hook to update the applicati
 I will leave this task to you before we continue and learn how to upgrade your juju charms in your models.
 
 # The upgrade-charm hook
-Once you have made changes to your charm, you want to upgrade it to your model. You can either remove your charm altogether (juju remove-application) and start new, but you then need to wait for a new machine to come alive. This is not what you want always. Also, the "install" hook might take a long time to run.
+Once you have made changes to your charm, you want to upgrade it in your existing model. You can either remove your charm altogether (juju remove-application) and start new, but you then need to wait for a new machine to come alive. This is not what you want always. Also, the "install" hook might take a long time to run.
 
 With your changes in the "update-status" hook, lets use "juju upgrade-charm" to upgrade the charm. 
 
