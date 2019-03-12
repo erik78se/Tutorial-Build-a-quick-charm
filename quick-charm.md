@@ -74,7 +74,7 @@ Soon, the application will enter the 'active' status and workload. Once you are 
 # Remove the application
 Lets clean up our test deploy, so we don't run into problems later.
 ```
-juju remove application tiny-python
+juju remove-application tiny-python
 ```
 Now, your juju model should be empty. Make sure it is with 'juju status'.
 
