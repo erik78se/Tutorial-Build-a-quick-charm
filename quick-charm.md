@@ -79,7 +79,7 @@ juju remove-application tiny-python
 Now, your juju model should be empty. Make sure it is with 'juju status'.
 
 # The juju state machine
-Before we dive deeper into "hooks", you need to understand when hooks are triggered by the [juju-state-machine]. There are many hooks, but a few are core to the operation of all charms. Also, you should take a quick look at docs here: [Juju event cycle](https://discourse.jujucharms.com/t/event-cycle/1117/1)
+Before we dive deeper into "hooks", you need to understand when hooks are triggered by the [juju-state-machine]. There are many hooks, but a few are core to the operation of all charms. You could take a quick look at docs here to learn more: [Juju event cycle](https://discourse.jujucharms.com/t/event-cycle/1117/1)
 
 The core hooks are the following: 
 * install
