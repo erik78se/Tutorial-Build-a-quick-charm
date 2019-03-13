@@ -67,7 +67,7 @@ juju deploy cs:~erik-lonroth/tiny-python
 juju status
 juju debug-log
 ```
-'juju debug-log' lets us see from a debug point of view what happens inside the model.
+'juju debug-log' lets us see from a debug point of view what happens inside the model. Read about [debuging charms](https://discourse.jujucharms.com/t/debugging-charm-hooks/1116) here.
 
 Soon, the application will enter the 'active' status and workload. Once you are happy watching logs and status we can continue.
 
