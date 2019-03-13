@@ -122,6 +122,12 @@ if __name__ == "__main__":
     install()
 
 ```
+At this point, you could end up in your charm getting an error with the install hook. To resolve that, fix your code and resolve the issues with:
+
+```bash
+juju upgrade-charm tiny-python --path=./tiny-python
+juju resolved tiny-python/0
+```
 
 # Deploy our local version
 With our changes saved, lets deploy our modified local charm.
