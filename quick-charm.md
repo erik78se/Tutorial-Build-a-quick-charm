@@ -19,6 +19,7 @@ You will:
 Lets get started!
 # Preparations
 1. You should have basic understanding of what juju, charms and [models] are. 
+1. You should have got through the [Getting started] chapter of official juju documentation.
 1. You need an internet connection.
 1. You need to [install juju client].
 1. You need a juju controller to deploy charms through. Here is how you can get that running on your local machine: [juju-lxd]
@@ -221,3 +222,4 @@ Happy charming!
 [snapcraft.io]: https://snapcraft.io/
 [install juju client]: https://docs.jujucharms.com/2.5/en/reference-install
 [models]: https://docs.jujucharms.com/2.5/en/models
+[Getting started]: https://docs.jujucharms.com/2.5/en/getting-started
