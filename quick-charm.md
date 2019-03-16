@@ -205,6 +205,10 @@ charm pull cs:~erik-lonroth/tiny-bash
 
 Happy charming!
 
+# Contributors
+@xinyuem - Added valuable information about typos and also tested the early versions.
+@rick_h - Gave valuable information about the "ubuntu lite" charm which is model for the charms in this tutorial.
+
 [hooks-environment]: https://discourse.jujucharms.com/t/the-hook-environment-hook-tools-and-how-hooks-are-run/1047
 [Erik Lönroth]: http://eriklonroth.wordpress.com
 [part 1]: https://discourse.jujucharms.com/t/tutorial-charm-development-beginner-part-1
